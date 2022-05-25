@@ -57,5 +57,14 @@ router.put('/api/employee/update/:id', (req, res) => {
         }
     })
 })
+
+//Delete Employee
+router.delete('/api/employee/delete/:id', (req, res) => {
+    Employee.findByIdAndRemove(req.params.id, (err, data) =>{
+        if(!err) {
+            res.status(200).json({code: 200, message: "Employee Deleted Successfully",  deleteEmployee:data })
+        }
+    })
+})
 module.exports = router;
 
