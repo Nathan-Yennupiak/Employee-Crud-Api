@@ -41,5 +41,21 @@ router.get('/api/employee/:id', (req, res) => {
         }
     })
 })
+
+//Update Employee
+router.put('/api/employee/update/:id', (req, res) => {
+    const emp = {
+        name: req.body.name,
+        email: req.body.email,
+        salary: req.body.salary
+    }
+    Employee.findByIdAndUpdate(req.params.id, {$set:emp}, {new:true}, (err, data) => {
+        if(!err) {
+            res.status(200).json({code: 200, message: "Employee Updated Successfully",  updateEmployee:data })
+        } else {
+            console.log(err)
+        }
+    })
+})
 module.exports = router;
 
