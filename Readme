@@ -1,0 +1,9 @@
+Endpoints :
+
+Create /api/employee/add
+
+Update /api/employee/update/id
+
+Get all Employees: /api/employees
+
+Get a Single Employee: /api/employee/id
